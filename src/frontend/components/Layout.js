@@ -1,16 +1,14 @@
 import Link from 'next/link';
 import { useAuth } from '../contexts/AuthContext';
-import styles from '../styles/Layout.module.css'; // <-- Uses the CSS Module
-import { useRouter } from 'next/router'; // <-- Imports the router
+import styles from '../styles/Layout.module.css';
+import { useRouter } from 'next/router'; 
 
 export default function Layout({ children }) {
   const { user, logout, loading } = useAuth();
-  const router = useRouter(); // Get the router
+  const router = useRouter();
 
-  // Define your auth pages to prevent nav error
   const authPages = ['/select-login', '/login', '/register', '/forgot-password', '/login-2fa'];
   
-  // Check if the current page is an auth page
   const isAuthPage = authPages.includes(router.pathname);
 
   const getUsername = () => {
@@ -20,7 +18,7 @@ export default function Layout({ children }) {
 
  return (
     <>
-      <nav className={styles.navbar}> {/* <-- Use CSS module */}
+      <nav className={styles.navbar}> 
         <div className={styles.container}>
           <Link href="/" className={styles.logo}>
             CharityPulse
@@ -31,23 +29,19 @@ export default function Layout({ children }) {
             {!loading && (
               user ? (
                 <>
-                  {/* Show "My Dashboard" only if they are an Organizer/Admin */}
                   {(user.role === 'Organizer' || user.role === 'Admin') && (
                     <Link href="/organiser/dashboard">My Dashboard</Link>
                   )}
                   
-                  {/* --- THIS IS THE FIX --- */}
-                  <Link href="/setup-mfa">Set up MFA</Link>
-                  {/* --------------------- */}
-                  
+                  <Link href="/setup-mfa">Set up MFA</Link>                  
                   <span style={{ fontWeight: 'bold' }}>Welcome, {getUsername()}</span>
                   
-                  <button onClick={logout} className={styles.navButtonSecondary}> {/* <-- Use CSS module */}
+                  <button onClick={logout} className={styles.navButtonSecondary}> 
                     Logout
                   </button>
                 </>
               ) : (
-                <Link href="/select-login" className={styles.navButton}> {/* <-- Use CSS module */}
+                <Link href="/select-login" className={styles.navButton}> 
                   Login / Register
                 </Link>
               )
@@ -60,7 +54,7 @@ export default function Layout({ children }) {
         {children}
       </main>
 
-      <footer className={styles.footer}> {/* <-- Use CSS module */}
+      <footer className={styles.footer}>
         <p>© 2025 CharityPulse. All rights reserved.</p>
       </footer>
     </>

@@ -1,4 +1,3 @@
-// frontend/components/CloseEventButton.js
 import { useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 

@@ -1,5 +1,4 @@
 .navbar {
-  /* Upgraded to white, sticky navbar */
   background-color: #696565;
   border-bottom: 1px solid #e0e0e0;
   padding: 1rem 0;
@@ -47,7 +46,6 @@
   color: #e7e8e8;
 }
 
-/* Uses the new green from globals.css */
 .navButton {
   padding: 0.5rem 1rem;
   border: 1px solid #00c853; 
@@ -65,7 +63,6 @@
   color: #fff;
 }
 
-/* For "Logout" or "Set up MFA" */
 .navButtonSecondary {
   padding: 0.5rem 1rem;
   border: 1px solid #ccc;

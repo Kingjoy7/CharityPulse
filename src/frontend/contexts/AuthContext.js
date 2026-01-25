@@ -10,7 +10,7 @@ export function AuthProvider({ children }) {
   const [loading, setLoading] = useState(true);
   const router = useRouter();
 
-  // Restore token on full refresh
+  
   useEffect(() => {
     setLoading(true);
 
@@ -39,7 +39,7 @@ export function AuthProvider({ children }) {
     setLoading(false);
   }, []);
 
-  // Login handler
+  
   const login = (newToken) => {
     try {
       localStorage.setItem('token', newToken);
@@ -53,7 +53,7 @@ export function AuthProvider({ children }) {
 
       setToken(newToken);
 
-      // Redirect by role
+      
       if (decoded.user.role === 'Organizer') {
         router.push('/organiser/dashboard');
       } else if (decoded.user.role === 'Admin') {

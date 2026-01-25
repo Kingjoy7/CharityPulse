@@ -14,7 +14,6 @@ export default function SelectLogin() {
         boxShadow: '0 4px 12px rgba(0, 0, 0, 0.05)'
     };
     
-    // ... (rest of the style objects are correct)
     const buttonContainerStyle = {
         display: 'flex',
         flexDirection: 'column',
@@ -54,8 +53,6 @@ export default function SelectLogin() {
             <p>Please select your role to continue.</p>
 
             <div style={buttonContainerStyle}>
-                {/* --- THIS IS THE FIX --- */}
-                {/* Send capitalized roles to match the rest of the app */}
                 <button
                     style={roleButtonStyle}
                     onClick={() => router.push('/login?role=User')}
@@ -85,7 +82,6 @@ export default function SelectLogin() {
                     <span>Admin</span>
                     <span style={{ fontSize: '0.9rem', fontWeight: 'normal', marginTop: '5px' }}>(Admin)</span>
                 </button>
-                {/* ----------------------- */}
             </div>
         </div>
     );

@@ -6,7 +6,6 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 export default function DonationChart({ data }) {
     if (!data || !Array.isArray(data)) return null;
 
-    // Convert the backend array format → Chart.js expected format
     const labels = data.map(item => item.label || "Unknown");
     const values = data.map(item => Number(item.value || 0));
 
@@ -17,8 +16,8 @@ export default function DonationChart({ data }) {
                 label: "Amount",
                 data: values,
                 backgroundColor: [
-                    "#4caf50",  // green (raised)
-                    "#cccccc",  // grey (remaining)
+                    "#4caf50",  
+                    "#cccccc",  
                 ],
                 borderColor: "#ffffff",
                 borderWidth: 2,

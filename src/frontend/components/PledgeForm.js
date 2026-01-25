@@ -21,7 +21,6 @@ export default function PledgeForm({ eventId, onPledgeSuccess }) {
         setMessage('');
         setError('');
 
-        // CFTF-6: Basic frontend validation
         if (parseFloat(formData.amount) <= 0) {
             setError('Pledge amount must be greater than 0');
             return;
@@ -44,9 +43,8 @@ export default function PledgeForm({ eventId, onPledgeSuccess }) {
             }
 
             setMessage('Thank you for your pledge!');
-            setFormData({ donorName: '', donorEmail: '', amount: '' }); // Clear form
+            setFormData({ donorName: '', donorEmail: '', amount: '' });
 
-            // CFTF-8: Trigger a refresh of the event data
             if (onPledgeSuccess) {
                 onPledgeSuccess();
             }

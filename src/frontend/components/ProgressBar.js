@@ -1,8 +1,6 @@
 import React from 'react';
 
-// This component receives the data calculated by the backend
 export default function ProgressBar({ progress, totalPledged, targetGoal }) {
-  // Ensure progress is between 0 and 100
   const percent = Math.min(Math.max(progress, 0), 100).toFixed(2);
 
   return (

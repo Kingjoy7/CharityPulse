@@ -9,11 +9,9 @@ export default function EventPage() {
     const [event, setEvent] = useState(null);
     const [error, setError] = useState('');
 
-    // Use useCallback to create a stable function for fetching
     const fetchEventData = useCallback(async () => {
         if (!id) return;
         try {
-            // This is the public endpoint for a single event
             const res = await fetch(`http://localhost:5001/api/events/${id}`);
             if (!res.ok) throw new Error('Failed to fetch event data. It may not exist.');
             const data = await res.json();
@@ -23,7 +21,6 @@ export default function EventPage() {
         }
     }, [id]);
 
-    // Fetch data on initial page load
     useEffect(() => {
         fetchEventData();
     }, [fetchEventData]);
@@ -31,8 +28,6 @@ export default function EventPage() {
     if (error) return <p style={{ color: 'red', textAlign: 'center' }}>{error}</p>;
     if (!event) return <p style={{ textAlign: 'center' }}>Loading event...</p>;
 
-    // --- THIS IS THE FIX ---
-    // This UI now matches your create-event page's style
     return (
         <div style={{ maxWidth: '600px', margin: 'auto', padding: '20px' }}>
             <h2 style={{ textAlign: 'center' }}>{event.title}</h2>
@@ -47,9 +42,7 @@ export default function EventPage() {
                 targetGoal={event.targetGoal}
             />
 
-            {/* This is the Pledge Form from Sprint 1 */}
             <PledgeForm eventId={id} onPledgeSuccess={fetchEventData} />
         </div>
     );
-    // -----------------------
 }

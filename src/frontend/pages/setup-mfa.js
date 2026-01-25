@@ -8,7 +8,6 @@ export default function SetupMFA() {
   const [error, setError] = useState('');
   const router = useRouter();
 
-  // 1. Fetch the QR code from the backend
   useEffect(() => {
     const getQrCode = async () => {
       const userToken = localStorage.getItem('token'); // Assumes user is logged in
@@ -31,7 +30,6 @@ export default function SetupMFA() {
     getQrCode();
   }, []);
 
-  // 2. Handle verification
   const handleSubmit = async (e) => {
     e.preventDefault();
     const userToken = localStorage.getItem('token');

@@ -1,4 +1,3 @@
-// frontend/pages/reports/summary/[id].js
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
@@ -17,7 +16,6 @@ export default function EventSummary() {
         if (!res.ok) throw new Error('Failed to fetch summary');
         const data = await res.json();
 
-        // normalize values (defensive)
         const safe = {
           title: data.title || 'Untitled Event',
           status: data.status || 'Unknown',

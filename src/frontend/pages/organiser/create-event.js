@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { useAuth } from '../../contexts/AuthContext'; // <-- 1. Import useAuth
+import { useAuth } from '../../contexts/AuthContext';
 
 export default function CreateEvent() {
     const [formData, setFormData] = useState({
@@ -12,21 +12,18 @@ export default function CreateEvent() {
     const [error, setError] = useState('');
     const router = useRouter();
     
-    // --- 2. GET USER, LOADING, AND TOKEN FROM CONTEXT ---
     const { user, token, loading } = useAuth(); 
-    // ---------------------------------------------------
 
-    // --- Page Protection ---
     useEffect(() => {
         if (!loading) { 
-          if (!user) {
-            router.push('/select-login');
-          } else if (user.role !== 'Organizer' && user.role !== 'Admin') {
+            if (!user) {
+                router.push('/select-login');
+            } 
+            else if (user.role !== 'Organizer' && user.role !== 'Admin') {
             router.push('/'); 
-          }
+            }
         }
     }, [user, loading, router]);
-    // -----------------------
 
     const handleChange = (e) => {
         setFormData({
@@ -39,20 +36,17 @@ export default function CreateEvent() {
         e.preventDefault();
         setError('');
 
-        // --- 3. THIS IS THE FIX ---
-        // Get the token directly from the AuthContext state
         if (!token) {
-          setError('You are not authenticated. Please log in again.');
-          return;
+            setError('You are not authenticated. Please log in again.');
+            return;
         }
-        // -----------------------
 
         try {
             const res = await fetch('http://localhost:5001/api/events', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'x-auth-token': token // <-- 4. SEND THE TOKEN
+                    'x-auth-token': token 
                 },
                 body: JSON.stringify({
                     ...formData,
@@ -75,7 +69,6 @@ export default function CreateEvent() {
         return <p>Loading...</p>;
     }
 
-    // --- YOUR UI IS UNCHANGED ---
     return (
         <form onSubmit={handleSubmit} style={{ maxWidth: '600px', margin: 'auto', padding: '20px' }}>
             <h2>Create New Fundraising Event</h2>

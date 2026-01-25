@@ -10,18 +10,16 @@ export default function AdminDashboard() {
   const { user, token, loading } = useAuth();
   const router = useRouter();
 
-  // 1. Protect this page
   useEffect(() => {
     if (!loading) {
       if (!user) {
         router.push('/select-login');
       } else if (user.role !== 'Admin') {
-        router.push('/'); // Not an admin, kick to home
+        router.push('/'); 
       }
     }
   }, [user, loading, router]);
 
-  // 2. Fetch all admin data
   useEffect(() => {
     if (user && token && user.role === 'Admin') {
       fetchUsers();
@@ -55,7 +53,6 @@ export default function AdminDashboard() {
     }
   };
 
-  // 3. Handle the revoke action
   const handleRevoke = async (userId) => {
     if (confirm('Are you sure you want to revoke this user\'s access?')) {
       try {
@@ -64,7 +61,7 @@ export default function AdminDashboard() {
           headers: { 'x-auth-token': token }
         });
         if (!res.ok) throw new Error('Failed to revoke access');
-        fetchUsers(); // Refresh the user list
+        fetchUsers(); 
       } catch (err) {
         alert(err.message);
       }
@@ -75,7 +72,6 @@ export default function AdminDashboard() {
     return <p>Loading...</p>;
   }
 
-  // --- THIS IS THE UPDATED UI ---
   return (
     <div className="page-container">
       <h1>Admin Dashboard</h1>
@@ -140,7 +136,6 @@ export default function AdminDashboard() {
         </table>
       </div>
 
-      {/* --- ADD THESE STYLES --- */}
       <style jsx>{`
         .table {
           width: 100%;

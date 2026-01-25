@@ -1,6 +1,3 @@
-/* globals.css - Upgraded */
-
-/* 1. Basic Reset and Font */
 html {
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
@@ -15,12 +12,11 @@ body {
   margin: 0;
   padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  background-color: #f4f7f7; /* A slightly softer white */
+  background-color: #f4f7f7; 
   color: #333;
 }
 
 main {
-  /* This ensures all page content has consistent padding */
   max-width: 1100px;
   margin: 2rem auto;
   padding: 0 1.5rem;
@@ -39,7 +35,6 @@ a:hover {
   text-decoration: underline;
 }
 
-/* 2. Form Styling (Upgraded) */
 form {
   max-width: 600px;
   margin: 2rem auto;
@@ -80,8 +75,6 @@ form textarea:focus {
   box-shadow: 0 0 0 2px rgba(0,112,243,0.2);
 }
 
-/* 3. Upgraded Button System */
-/* Base button style */
 .button {
   display: inline-block;
   padding: 0.8rem 1.25rem;
@@ -102,9 +95,8 @@ form textarea:focus {
   transform: translateY(0);
 }
 
-/* Button colors */
 .button-primary {
-  background: #00c853; /* GoFundMe Green */
+  background: #00c853; 
   color: white;
   border-color: #00c853;
 }
@@ -133,14 +125,12 @@ form textarea:focus {
   border-color: #c91825;
 }
 
-/* Button links (for login/register page) */
 .button-link {
   display: block;
   width: 100%;
   margin-top: 10px;
 }
 
-/* 4. Utility & Responsive */
 .card {
   background: #fff;
   border-radius: 12px;

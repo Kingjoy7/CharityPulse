@@ -1,4 +1,3 @@
-// frontend/pages/reports/[id].js
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import DonationChart from '../../components/DonationChart';
@@ -17,7 +16,6 @@ export default function ReportPage() {
                 if (!res.ok) throw new Error('Failed to fetch report');
                 const data = await res.json();
 
-                // Defensive normalisation
                 const safeData = {
                     pieChartData: Array.isArray(data.pieChartData) ? data.pieChartData : [],
                     topDonors: Array.isArray(data.topDonors) ? data.topDonors.map(d => ({

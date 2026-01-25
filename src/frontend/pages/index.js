@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import EventCard from '../components/EventCard'; // <-- Uses your existing component
+import EventCard from '../components/EventCard';
 
 export default function HomePage() {
   const [events, setEvents] = useState([]);
@@ -30,7 +30,6 @@ export default function HomePage() {
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '20px' }}>
         {events.length > 0 ? (
           events.map(event => (
-            // Use your EventCard component
             <EventCard key={event._id} event={event} />
           ))
         ) : (

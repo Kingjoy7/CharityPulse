@@ -6,7 +6,7 @@ export default function EditEventPage() {
   const router = useRouter();
   const { id } = router.query;
 
-  const { token } = useAuth(); // <-- GET TOKEN
+  const { token } = useAuth(); 
 
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -42,7 +42,7 @@ export default function EditEventPage() {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
-          "x-auth-token": token, // 🔥 REQUIRED FOR AUTH
+          "x-auth-token": token,
         },
         body: JSON.stringify({
           title,

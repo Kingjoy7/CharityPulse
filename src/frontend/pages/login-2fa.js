@@ -5,7 +5,7 @@ export default function Login2FA() {
   const [token, setToken] = useState('');
   const [error, setError] = useState('');
   const router = useRouter();
-  const { userId } = router.query; // Get userId from the URL query
+  const { userId } = router.query;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -24,7 +24,6 @@ export default function Login2FA() {
       const data = await res.json();
       if (!res.ok) throw new Error(data.msg || 'Login failed');
 
-      // Success! Save token and go to dashboard
       localStorage.setItem('token', data.token);
       router.push('/dashboard');
 
