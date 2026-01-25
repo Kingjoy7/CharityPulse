@@ -1,0 +1,183 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Backend Dependencies
+        run: npm install --prefix src/backend
+        
+      - name: Install Frontend Dependencies
+        run: npm install --prefix src/frontend
+
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    needs: build
+    services:
+      mongodb:
+        image: mongo:latest
+        ports:
+          - 27017:27017
+    steps:
+      - uses: actions/checkout@v4 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Wait for MongoDB
+        run: |
+          sudo apt-get install -y netcat-openbsd
+          timeout 20 bash -c 'until nc -z localhost 27017; do sleep 1; done'
+      - name: Install Backend Dependencies
+        run: npm install --prefix src/backend
+      - name: Install Frontend Dependencies
+        run: npm install --prefix src/frontend
+      - name: Run Backend Tests
+        env:
+          MONGODB_TEST_URI: mongodb://localhost:27017/charitypulse-test
+        run: npm test --prefix src/backend
+      - name: Run Frontend Tests
+        run: npm test --prefix src/frontend -- --watchAll=false
+
+  coverage:
+    name: Coverage
+    runs-on: ubuntu-latest
+    needs: test
+    services:
+      mongodb:
+        image: mongo:latest
+        ports:
+          - 27017:27017
+    steps:
+      - uses: actions/checkout@v4 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Wait for MongoDB
+        run: |
+          sudo apt-get install -y netcat-openbsd
+          timeout 20 bash -c 'until nc -z localhost 27017; do sleep 1; done'
+      - name: Install Backend Dependencies
+        run: npm install --prefix src/backend
+      - name: Install Frontend Dependencies
+        run: npm install --prefix src/frontend
+      - name: Generate Backend Coverage
+        env:
+          MONGODB_TEST_URI: mongodb://localhost:27017/charitypulse-test
+        run: npm test --prefix src/backend -- --coverage
+      - name: Generate Frontend Coverage
+        run: npm test --prefix src/frontend -- --coverage --watchAll=false
+        
+      - name: Upload Backend Coverage
+        uses: actions/upload-artifact@v4
+        with:
+          name: backend-coverage-report
+          path: src/backend/coverage/
+      - name: Upload Frontend Coverage
+        uses: actions/upload-artifact@v4
+        with:
+          name: frontend-coverage-report
+          path: src/frontend/coverage/
+
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - uses: actions/checkout@v4 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install Backend Dependencies
+        run: npm install --prefix src/backend
+      - name: Install Frontend Dependencies
+        run: npm install --prefix src/frontend
+      - name: Run Backend Lint
+        run: npm run lint --prefix src/backend
+      - name: Run Frontend Lint
+        run: npm run lint --prefix src/frontend
+
+  security:
+    name: Security Scan
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - uses: actions/checkout@v4 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install Backend Dependencies
+        run: npm install --prefix src/backend
+      - name: Install Frontend Dependencies
+        run: npm install --prefix src/frontend
+      
+      - name: Run Backend Audit
+        run: npm audit --prefix src/backend --audit-level=high --json > backend-audit.json || true
+      - name: Run Frontend Audit
+        run: npm audit --prefix src/frontend --audit-level=high --json > frontend-audit.json || true
+      
+      - name: Upload Backend Audit Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: backend-audit-report
+          path: backend-audit.json
+      - name: Upload Frontend Audit Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: frontend-audit-report
+          path: frontend-audit.json
+
+  deploy-artifact:
+    name: Create Deployment Artifact
+    runs-on: ubuntu-latest
+    needs: [test, coverage, lint, security]
+    
+    steps:
+      - uses: actions/checkout@v4 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+      
+      - name: Display downloaded artifact structure
+        run: ls -R
+        
+      - name: Zip Artifacts
+        run: |
+          mkdir -p deployment/src
+          mkdir -p deployment/reports
+          cp -r src deployment/
+          cp README.md deployment/ || true
+          cp package.json deployment/ || true
+          cp package-lock.json deployment/ || true
+          cp -r backend-coverage-report deployment/reports/ || true
+          cp -r frontend-coverage-report deployment/reports/ || true
+          cp -r backend-audit-report deployment/reports/ || true
+          cp -r frontend-audit-report deployment/reports/ || true
+          zip -r deployment-package.zip deployment
+          
+      - name: Upload Deployment Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: deployment-package
+          path: deployment-package.zip
