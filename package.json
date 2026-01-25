@@ -1,0 +1,24 @@
+{
+  "name": "pesu_ec_cse_j_p49_charity_event_fundraising_tracker_charitypulse",
+  "version": "1.0.0",
+  "description": "**Project ID:** P49  \r **Course:** UE23CS341A  \r **Academic Year:** 2025  \r **Semester:** 5th Sem  \r **Campus:** EC  \r **Branch:** CSE  \r **Section:** J  \r **Team:** CharityPulse",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pestechnology/PESU_EC_CSE_J_P49_Charity_Event_Fundraising_Tracker_CharityPulse.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/pestechnology/PESU_EC_CSE_J_P49_Charity_Event_Fundraising_Tracker_CharityPulse/issues"
+  },
+  "homepage": "https://github.com/pestechnology/PESU_EC_CSE_J_P49_Charity_Event_Fundraising_Tracker_CharityPulse#readme",
+  "devDependencies": {
+    "baseline-browser-mapping": "^2.9.18"
+  }
+}

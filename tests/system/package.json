@@ -1,0 +1,15 @@
+{
+  "name": "system-tests",
+  "version": "1.0.0",
+  "description": "E2E tests for CharityPulse",
+  "scripts": {
+    "cy:open": "cypress open",
+    "cy:run": "cypress run"
+  },
+  "devDependencies": {
+    "cypress": "^13.0.0"
+  },
+  "dependencies": {
+    "pesu_ec_cse_j_p49_charity_event_fundraising_tracker_charitypulse": "file:../.."
+  }
+}

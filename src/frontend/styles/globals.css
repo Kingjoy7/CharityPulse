@@ -1,0 +1,155 @@
+/* globals.css - Upgraded */
+
+/* 1. Basic Reset and Font */
+html {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: #f4f7f7; /* A slightly softer white */
+  color: #333;
+}
+
+main {
+  /* This ensures all page content has consistent padding */
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #111;
+  margin-top: 0;
+}
+
+a {
+  color: #0070f3;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* 2. Form Styling (Upgraded) */
+form {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2.5rem;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+}
+
+form div {
+  margin-bottom: 1.5rem;
+}
+
+form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #444;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form input[type="number"],
+form input[type="date"],
+form textarea {
+  width: 100%;
+  padding: 0.9rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+  font-size: 1rem;
+}
+form input:focus,
+form textarea:focus {
+  border-color: #0070f3;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0,112,243,0.2);
+}
+
+/* 3. Upgraded Button System */
+/* Base button style */
+.button {
+  display: inline-block;
+  padding: 0.8rem 1.25rem;
+  border-radius: 6px;
+  font-weight: 600;
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+.button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+.button:active {
+  transform: translateY(0);
+}
+
+/* Button colors */
+.button-primary {
+  background: #00c853; /* GoFundMe Green */
+  color: white;
+  border-color: #00c853;
+}
+.button-primary:hover {
+  background: #009624;
+  border-color: #009624;
+}
+
+.button-secondary {
+  background: #fff;
+  color: #333;
+  border-color: #ccc;
+}
+.button-secondary:hover {
+  background: #f9f9f9;
+  border-color: #bbb;
+}
+
+.button-danger {
+  background: #e63946;
+  color: white;
+  border-color: #e63946;
+}
+.button-danger:hover {
+  background: #c91825;
+  border-color: #c91825;
+}
+
+/* Button links (for login/register page) */
+.button-link {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* 4. Utility & Responsive */
+.card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+}
+
+@media (max-width: 640px) {
+  body { font-size: 15px; }
+  main { margin: 1rem auto; padding: 0 1rem; }
+  form { margin: 1rem; padding: 1.5rem; }
+}
