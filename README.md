@@ -41,9 +41,6 @@ Create a .env file inside the backend folder:
 MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_jwt_secret
 
-
-(If using MongoDB Atlas, paste the connection string here.)
-
 ▶️ Run the Application
 Start Backend Server
 cd src/backend
