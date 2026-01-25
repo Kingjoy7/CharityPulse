@@ -1,59 +1,105 @@
 # Charity Event Fundraising Tracker
 
-**Project ID:** P49  
-**Course:** UE23CS341A  
-**Academic Year:** 2025  
-**Semester:** 5th Sem  
-**Campus:** EC  
-**Branch:** CSE  
-**Section:** J  
-**Team:** CharityPulse
-
 ## 📋 Project Description
 
 A portal to create fundraising events with targets, collect donor pledges, and visualize progress toward goals. The project combines pledge-entry forms, aggregation logic, and progress-bar charts.
 
 This repository contains the source code and documentation for the Charity Event Fundraising Tracker project, developed as part of the UE23CS341A course at PES University.
 
-## 🧑‍💻 Development Team (CharityPulse)
+🚀 Getting Started
+✅ Prerequisites
 
-- [@Kingjoy7](https://github.com/Kingjoy7) - Scrum Master
-- [@IshaanSinha15](https://github.com/IshaanSinha15) - Developer Team
-- [@IshikaRaj1311](https://github.com/IshikaRaj1311) - Developer Team
-- [@Tanishq1234-alt](https://github.com/Tanishq1234-alt) - Developer Team
+Make sure you have the following installed on your system:
 
-## 👨‍🏫 Teaching Assistant
+Node.js (v16 or later)
 
-- [@nikitha-0704](https://github.com/nikitha-0704)
-- [@samwilson129](https://github.com/samwilson129)
-- [@harshamogra](https://github.com/harshamogra)
+npm or yarn
 
-## 👨‍⚖️ Faculty Supervisor
+MongoDB (local or MongoDB Atlas)
 
-- [@sudeeparoydey](https://github.com/sudeeparoydey)
+Git
+
+VS Code (recommended)
+
+🛠 Installation
+1️⃣ Clone the repository
+git clone https://github.com/CharityPulse
+cd CharityPulse
+
+2️⃣ Install Backend Dependencies
+cd src/backend
+npm install
+
+3️⃣ Install Frontend Dependencies
+cd src/frontend
+npm install
+
+4️⃣ Setup Environment Variables
+
+Create a .env file inside the backend folder:
+
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret
 
 
-## 🚀 Getting Started
+(If using MongoDB Atlas, paste the connection string here.)
 
-### Prerequisites
-- [List your prerequisites here]
+▶️ Run the Application
+Start Backend Server
+cd src/backend
+npm run dev
 
-### Installation
-1. Clone the repository
-   ```bash
-   git clone https://github.com/pestechnology/PESU_EC_CSE_J_P49_Charity_Event_Fundraising_Tracker_CharityPulse.git
-   cd PESU_EC_CSE_J_P49_Charity_Event_Fundraising_Tracker_CharityPulse
-   ```
 
-2. Install dependencies
-   ```bash
-   # Add your installation commands here
-   ```
+Server runs on:
 
-3. Run the application
-   ```bash
-   # Add your run commands here
-   ```
+http://localhost:5000
+
+Start Frontend
+cd src/frontend
+npm run dev
+
+
+Frontend runs on:
+
+http://localhost:3000
+
+✅ Features
+
+User Authentication (JWT)
+
+Event Creation & Management
+
+Secure Donations (Pledges)
+
+Event Progress Tracking
+
+Admin / Organizer Controls
+
+MFA Authentication
+
+RESTful API
+
+Modern UI
+
+🧪 Testing
+
+To run Cypress tests:
+
+npx cypress open
+
+📦 Tech Stack
+
+Frontend: Next.js, React, CSS
+
+Backend: Node.js, Express
+
+Database: MongoDB
+
+Auth: JWT + MFA (Speakeasy)
+
+Testing: Cypress
+
+Deployment: Vercel / Localhost
 
 ## 📁 Project Structure
 
@@ -67,53 +113,14 @@ PESU_EC_CSE_J_P49_Charity_Event_Fundraising_Tracker_CharityPulse/
 └── ...
 ```
 
-## 🛠️ Development Guidelines
+📄 License
 
-### Branching Strategy
-- `main`: Production-ready code
-- `develop`: Development branch
-- `feature/*`: Feature branches
-- `bugfix/*`: Bug fix branches
-
-### Commit Messages
-Follow conventional commit format:
-- `feat:` New features
-- `fix:` Bug fixes
-- `docs:` Documentation changes
-- `style:` Code style changes
-- `refactor:` Code refactoring
-- `test:` Test-related changes
-
-### Code Review Process
-1. Create feature branch from `develop`
-2. Make changes and commit
-3. Create Pull Request to `develop`
-4. Request review from team members
-5. Merge after approval
-
-## 📚 Documentation
-
-- [API Documentation](docs/api.md)
-- [User Guide](docs/user-guide.md)
-- [Developer Guide](docs/developer-guide.md)
-
-## 🧪 Testing
-
-```bash
-# Run tests
-npm test
-
-# Run tests with coverage
-npm run test:coverage
-```
-
-## 📄 License
-
-This project is developed for educational purposes as part of the PES University UE23CS341A curriculum.
-
+This project is licensed under the MIT License and is intended strictly for educational and academic purposes.
+You are free to use, modify, and distribute this project with proper attribution.
 ---
 
-**Course:** UE23CS341A  
-**Institution:** PES University  
-**Academic Year:** 2025  
-**Semester:** 5th Sem
+👨‍💻 Developed By
+
+Sujoy Sen
+B.Tech – Computer Science & Engineering
+PES University
