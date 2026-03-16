@@ -1,123 +1,147 @@
-# Charity Event Fundraising Tracker
+# CharityPulse – Charity Event Fundraising Tracker
 
-## 📋 Project Description
+A full-stack fundraising platform that enables organizers to create charity events, set donation targets, collect secure donor pledges, and track fundraising progress through interactive dashboards.
 
-A portal to create fundraising events with targets, collect donor pledges, and visualize progress toward goals. The project combines pledge-entry forms, aggregation logic, and progress-bar charts.
+---
 
-This repository contains the source code and documentation for the Charity Event Fundraising Tracker project, developed as part of the UE23CS341A course at PES University.
+## Overview
 
-🚀 Getting Started
-✅ Prerequisites
+CharityPulse is designed to simplify charity event management by providing a centralized portal for organizers and donors. The platform supports secure authentication, event creation, pledge tracking, admin controls, and real-time progress visualization.
 
-Make sure you have the following installed on your system:
+This project demonstrates full-stack development using **Next.js**, **React**, **Node.js**, **Express**, and **MongoDB**, along with authentication, testing, and deployment practices.
+
+---
+
+## Features
+
+- User authentication with **JWT**
+- **Multi-Factor Authentication (MFA)** for enhanced security
+- Charity event creation and management
+- Secure donor pledge submission
+- Fundraising target and progress tracking
+- Admin / organizer controls
+- RESTful API architecture
+- Interactive and modern user interface
+- End-to-end testing with **Cypress**
+
+---
+
+## Tech Stack
+
+### Frontend
+- Next.js
+- React
+- Tailwind CSS
+
+### Backend
+- Node.js
+- Express.js
+
+### Database
+- MongoDB
+
+### Authentication
+- JWT
+- Speakeasy (MFA)
+
+### Testing
+- Cypress
+
+### Deployment
+- Vercel / Localhost
+
+---
+
+## Project Structure
+
+```bash
+PESU_EC_CSE_J_P49_Charity_Event_Fundraising_Tracker_CharityPulse/
+├── src/                 # Source code
+├── docs/                # Documentation
+├── tests/               # Test files
+├── .github/             # GitHub workflows and templates
+├── README.md            # Project documentation
+└── ...
+Getting Started
+Prerequisites
+
+Make sure the following are installed on your system:
 
 Node.js (v16 or later)
 
 npm or yarn
 
-MongoDB (local or MongoDB Atlas)
+MongoDB (local instance or MongoDB Atlas)
 
 Git
 
 VS Code (recommended)
 
-🛠 Installation
-1️⃣ Clone the repository
+Installation
+1. Clone the Repository
 git clone https://github.com/CharityPulse
 cd CharityPulse
-
-2️⃣ Install Backend Dependencies
+2. Install Backend Dependencies
 cd src/backend
 npm install
-
-3️⃣ Install Frontend Dependencies
-cd src/frontend
+3. Install Frontend Dependencies
+cd ../frontend
 npm install
+Environment Variables
 
-4️⃣ Setup Environment Variables
-
-Create a .env file inside the backend folder:
+Create a .env file inside the src/backend folder and add the following:
 
 MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_jwt_secret
-
-▶️ Run the Application
-Start Backend Server
+Running the Application
+Start the Backend Server
 cd src/backend
 npm run dev
 
-
-Server runs on:
+Backend will run on:
 
 http://localhost:5000
-
-Start Frontend
+Start the Frontend
 cd src/frontend
 npm run dev
 
-
-Frontend runs on:
+Frontend will run on:
 
 http://localhost:3000
-
-✅ Features
-
-User Authentication (JWT)
-
-Event Creation & Management
-
-Secure Donations (Pledges)
-
-Event Progress Tracking
-
-Admin / Organizer Controls
-
-MFA Authentication
-
-RESTful API
-
-Modern UI
-
-🧪 Testing
+Testing
 
 To run Cypress tests:
 
 npx cypress open
+Use Cases
 
-📦 Tech Stack
+Create and manage fundraising campaigns
 
-Frontend: Next.js, React, CSS
+Set donation goals for charity events
 
-Backend: Node.js, Express
+Allow users to securely pledge donations
 
-Database: MongoDB
+Monitor event progress visually
 
-Auth: JWT + MFA (Speakeasy)
+Enable organizers to manage campaigns efficiently
 
-Testing: Cypress
+Highlights
 
-Deployment: Vercel / Localhost
+Full-stack architecture with separate frontend and backend
 
-## 📁 Project Structure
+Secure authentication with support for MFA
 
-```
-PESU_EC_CSE_J_P49_Charity_Event_Fundraising_Tracker_CharityPulse/
-├── src/                 # Source code
-├── docs/               # Documentation
-├── tests/              # Test files
-├── .github/            # GitHub workflows and templates
-├── README.md          # This file
-└── ...
-```
+Real-time progress monitoring for fundraising events
 
-📄 License
+REST API design for scalable communication
 
-This project is licensed under the MIT License and is intended strictly for educational and academic purposes.
-You are free to use, modify, and distribute this project with proper attribution.
----
+Clean UI for both donors and organizers
 
-👨‍💻 Developed By
+Testing support for improved reliability
+
+
+Developed By
 
 Sujoy Sen
-B.Tech – Computer Science & Engineering
+B.Tech – Computer Science and Engineering
 PES University
