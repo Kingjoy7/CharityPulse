@@ -54,94 +54,135 @@ This project demonstrates full-stack development using **Next.js**, **React**, *
 
 ## Project Structure
 
-```bash
-PESU_EC_CSE_J_P49_Charity_Event_Fundraising_Tracker_CharityPulse/
-├── src/                 # Source code
-├── docs/                # Documentation
-├── tests/               # Test files
-├── .github/             # GitHub workflows and templates
-├── README.md            # Project documentation
+```text
+CharityPulse/
+├── src/
+│   ├── frontend/
+│   └── backend/
+├── docs/
+├── tests/
+├── .github/
+├── README.md
 └── ...
-Getting Started
-Prerequisites
+```
 
-Make sure the following are installed on your system:
+---
 
-Node.js (v16 or later)
+# Getting Started
 
-npm or yarn
+## Prerequisites
 
-MongoDB (local instance or MongoDB Atlas)
+Make sure the following are installed:
 
-Git
+- Node.js (v16 or later)
+- npm or yarn
+- MongoDB (Local or MongoDB Atlas)
+- Git
+- Visual Studio Code (Recommended)
 
-VS Code (recommended)
+---
 
-Installation
-1. Clone the Repository
-git clone https://github.com/CharityPulse
+## Installation
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/Kingjoy7/CharityPulse.git
 cd CharityPulse
-2. Install Backend Dependencies
+```
+
+### 2. Install Backend Dependencies
+
+```bash
 cd src/backend
 npm install
-3. Install Frontend Dependencies
+```
+
+### 3. Install Frontend Dependencies
+
+```bash
 cd ../frontend
 npm install
-Environment Variables
+```
 
-Create a .env file inside the src/backend folder and add the following:
+---
 
+## Environment Variables
+
+Create a `.env` file inside `src/backend` and add:
+
+```env
 MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_jwt_secret
-Running the Application
-Start the Backend Server
+```
+
+---
+
+## Running the Application
+
+### Start the Backend
+
+```bash
 cd src/backend
 npm run dev
+```
 
-Backend will run on:
+Backend runs on:
 
+```
 http://localhost:5000
-Start the Frontend
+```
+
+### Start the Frontend
+
+```bash
 cd src/frontend
 npm run dev
+```
 
-Frontend will run on:
+Frontend runs on:
 
+```
 http://localhost:3000
-Testing
+```
 
-To run Cypress tests:
+---
 
+# Testing
+
+Run Cypress:
+
+```bash
 npx cypress open
-Use Cases
+```
 
-Create and manage fundraising campaigns
+---
 
-Set donation goals for charity events
+# Use Cases
 
-Allow users to securely pledge donations
+- Create and manage charity fundraising campaigns.
+- Set fundraising goals for events.
+- Allow donors to securely pledge donations.
+- Track fundraising progress through interactive dashboards.
+- Enable organizers and administrators to manage campaigns efficiently.
 
-Monitor event progress visually
+---
 
-Enable organizers to manage campaigns efficiently
+# Highlights
 
-Highlights
+- Full-stack architecture with separate frontend and backend.
+- Secure JWT authentication with Multi-Factor Authentication (MFA).
+- RESTful API architecture for scalable communication.
+- Interactive dashboards for fundraising analytics.
+- Automated testing using Cypress.
+- Clean and responsive user interface.
 
-Full-stack architecture with separate frontend and backend
+---
 
-Secure authentication with support for MFA
+# Developed By
 
-Real-time progress monitoring for fundraising events
+**Sujoy Sen**
 
-REST API design for scalable communication
-
-Clean UI for both donors and organizers
-
-Testing support for improved reliability
-
-
-Developed By
-
-Sujoy Sen
 B.Tech – Computer Science and Engineering
+
 PES University
