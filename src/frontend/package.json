@@ -13,7 +13,6 @@
     "chart.js": "^4.5.1",
     "jwt-decode": "^4.0.0",
     "next": "14.2.3",
-    "pesu_ec_cse_j_p49_charity_event_fundraising_tracker_charitypulse": "file:../..",
     "react": "18.2.0",
     "react-chartjs-2": "^5.3.1",
     "react-dom": "18.2.0"
