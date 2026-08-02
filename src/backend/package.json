@@ -18,7 +18,6 @@
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^7.0.0",
     "nodemailer": "^7.0.10",
-    "pesu_ec_cse_j_p49_charity_event_fundraising_tracker_charitypulse": "file:../..",
     "qrcode": "^1.5.4",
     "speakeasy": "^2.0.0",
     "winston": "^3.18.3"
